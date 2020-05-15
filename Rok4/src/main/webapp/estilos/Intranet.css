@@ -1,0 +1,16 @@
+body{
+    background: #E0ECF8;
+}
+@media (min-width:1024px){
+    .capalogo{
+    width: 30%;
+   }
+    .menu{
+      width: 70%;  
+    }
+    nav>ul{
+        width: 20%;
+    }
+    
+}
+    

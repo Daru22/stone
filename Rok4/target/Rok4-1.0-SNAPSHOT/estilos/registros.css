@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.ContProd{
+    width: 100%;
+    background: #F0F3F4;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content:center;
+    align-items:center;
+    color: #000033;
+    font-family: sans-serif;
+    color: #000033;
+}
+.ContProd strong{
+    width: 100%;
+    text-align: center;
+    margin: 10px;
+}
+.ContProd form{
+    width: 100%;
+    border-radius: 3px;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content:center;
+}
+.parForm{
+    width: 100%;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content:center;
+    align-items:center; 
+    margin-bottom: 10px;
+}
+.parForm label{
+    width: 40%;
+}
+.parForm .tbox{
+    width: 60%;
+    border: 1px solid blue;
+    padding: 4px;
+}
+
+.parForm .boton{
+    width: 80%;
+    background: #F4D03F;
+    font-weight: bold;
+    padding: 5px;
+}
+p{  
+    font-weight: normal;
+    text-align: justify;
+    padding: 5px;
+}
+
+@media (min-width:768px){
+    .ContProd form{
+        padding: 15px;      
+    }
+    .parForm .tbox{
+        width: 40%;
+    padding: 7px;
+    }
+    .parForm label{
+        width: 25%;
+        font-weight: bold;
+    }
+    .parForm .boton{
+        width: 50%;
+        padding: 8px;
+        border-radius: 3px;
+    }
+}
