@@ -11,7 +11,7 @@
         <strong>INGRESAR COMPRA</strong>       
         <form>
             <div class="parForm">
-            <label>NOMBRE</label><input class="tbox" type="text">
+                <label>NOMBRE</label><input class="tbox" type="text" name="txtNombre">
             </div>
             <div class="parForm">
         <label>CANTIDAD</label><input class="tbox" type="text">
@@ -20,7 +20,7 @@
         <label>PRECIO COMPRA</label><input class="tbox" type="text">
         </div>
             <div class="parForm">
-        <label>FECHA</label><input class="tbox" type="select">
+        <label>FECHA</label><input class="tbox" type="date" min="2020-01-01" name="dteIngresoC">
         </div>
             <div class="parForm">
         <label>COMENTARIO</label><input class="tbox" type="select">

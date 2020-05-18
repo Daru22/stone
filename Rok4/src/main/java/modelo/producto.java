@@ -17,11 +17,12 @@ int idTipo;
 int idTienda;
 int idMargen;
 int stock;
+float precio;
 
     public producto() {
     }
 
-    public producto(int id, String nombre, String descripcion, String codigoBarras, Date fechaVencimiento, int idProveedor, int idSeccion, int idUniMedida, int idMarcas, int idTipo, int idTienda, int idMargen, int stock) {
+    public producto(int id, String nombre, String descripcion, String codigoBarras, Date fechaVencimiento, int idProveedor, int idSeccion, int idUniMedida, int idMarcas, int idTipo, int idTienda, int idMargen, int stock, float precio) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -35,6 +36,7 @@ int stock;
         this.idTienda = idTienda;
         this.idMargen = idMargen;
         this.stock = stock;
+        this.precio = precio;
     }
 
     public int getId() {
@@ -141,5 +143,13 @@ int stock;
         this.stock = stock;
     }
 
+    public float getPrecio() {
+        return precio;
+    }
 
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    
 }

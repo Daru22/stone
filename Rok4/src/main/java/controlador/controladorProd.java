@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -78,6 +78,7 @@ public class controladorProd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion=request.getParameter("guardarProducto");
+        
         switch(accion){
             case "GUARDAR":
              producto prod= new producto();
@@ -99,7 +100,6 @@ public class controladorProd extends HttpServlet {
              prod.setIdUniMedida(Integer.parseInt(request.getParameter("cboUnidadMedida")));
              prod.setIdMarcas(Integer.parseInt(request.getParameter("cboMarcas")));
              prod.setIdTipo(Integer.parseInt(request.getParameter("cboTipo")));
-             prod.setIdTienda(Integer.parseInt(request.getParameter("cboTienda")));
              prod.setIdMargen(Integer.parseInt(request.getParameter("cboMargen")));
              rpta=pDao.guardar(prod);
              if(rpta==1){
@@ -109,11 +109,18 @@ public class controladorProd extends HttpServlet {
              request.setAttribute("respuesta", "Hubo error");
              request.getRequestDispatcher("registrarProducto.jsp").forward(request, response); 
              }
-             break;            
+             break;
+             
+            case "BUSCAR":
+                productoDao pdao2 = new productoDao();
+                List listaProd=pdao2.buscar(request.getParameter("txtNombre"));
+                request.setAttribute("listaProd", listaProd);
+             break;
          default:
              throw new AssertionError();
                 
         }
+        
     }
 
     /**

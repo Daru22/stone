@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class productoDao {
     
@@ -16,7 +18,7 @@ public class productoDao {
         int rpta;    
     public int guardar(producto prod){
         
-    String sql="insert into productos(nombre,descripcion,codigoBarras,fechaVencimiento,idProveedor,idSeccion,idUniMedida,idMarcas,idTipo,idTienda,idMargen) values (?,?,?,?,?,?,?,?,?,?,?)";
+    String sql="insert into productos(nombre,descripcion,codigoBarras,fechaVencimiento,idProveedor,idSeccion,idUniMedida,idMarcas,idTipo,idMargen) values (?,?,?,?,?,?,?,?,?,?)";
         try {
             con= cn.Conectar();
             ps=con.prepareStatement(sql);
@@ -29,8 +31,7 @@ public class productoDao {
             ps.setInt(7, prod.getIdUniMedida());
             ps.setInt(8, prod.getIdMarcas());
             ps.setInt(9, prod.getIdTipo());
-            ps.setInt(10, prod.getIdTienda());
-            ps.setInt(11, prod.getIdMargen());
+            ps.setInt(10, prod.getIdMargen());
             ps.executeUpdate();
             rpta=1;
         } catch (SQLException e) {
@@ -38,5 +39,24 @@ public class productoDao {
             rpta=0;
         }
     return rpta;
-    }    
+    }
+
+ public List buscar(String cadena){
+        List<producto>listap=new ArrayList();
+    String sql="select idProducto,nombre from bdcomercio.productos where nombre like '%?%';";
+    producto produ=new producto();
+        try {
+            con= cn.Conectar();
+            ps=con.prepareStatement(sql);
+            rs=ps.executeQuery();
+        while(rs.next()){      
+        produ.setId(rs.getInt(1));
+        produ.setNombre(rs.getString(2));
+        listap.add(produ);
+        }  
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    return listap;
+    }       
 }

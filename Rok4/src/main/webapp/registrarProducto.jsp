@@ -59,13 +59,6 @@
             </select>
             </div>
             <div class="parForm">
-            <label>TIENDA</label><select class="tbox"  name="cboTienda">
-                 <c:forEach var="prov" items="${listaTienda}">
-                <option value="${prov.getIdTienda()}">${prov.getNombreTienda()}</option>
-            </c:forEach>
-            </select>
-            </div>
-            <div class="parForm">
             <label>MARGEN</label><select class="tbox"  name="cboMargen">
                  <c:forEach var="prov" items="${listaMarg}">
                 <option value="${prov.getIdMargen()}">${prov.getNombreMargen()}</option>
