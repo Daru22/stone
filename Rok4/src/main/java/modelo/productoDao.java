@@ -41,22 +41,22 @@ public class productoDao {
     return rpta;
     }
 
- public List buscar(String cadena){
-        List<producto>listap=new ArrayList();
-    String sql="select idProducto,nombre from bdcomercio.productos where nombre like '%?%';";
-    producto produ=new producto();
-        try {
-            con= cn.Conectar();
-            ps=con.prepareStatement(sql);
-            rs=ps.executeQuery();
-        while(rs.next()){      
-        produ.setId(rs.getInt(1));
-        produ.setNombre(rs.getString(2));
-        listap.add(produ);
-        }  
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    return listap;
-    }       
+ public List buscar(){
+   List<producto>lista=new ArrayList();
+    String sql="select idProducto,nombre from productos";
+    try {
+        con= cn.Conectar();
+        ps=con.prepareStatement(sql);
+        rs=ps.executeQuery();
+        while(rs.next()){
+        producto prod=new producto();
+        prod.setId(rs.getInt(1));
+        prod.setNombre(rs.getString(2));
+        lista.add(prod);
+        }        
+    } catch (Exception e){
+        e.printStackTrace();
+    }
+    return lista;   
+}
 }

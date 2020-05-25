@@ -15,15 +15,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.producto;
+import modelo.ingresoCompra;
+import modelo.ingresoCompraDao;
 import modelo.productoDao;
 
 /**
  *
  * @author Master-D
  */
-@WebServlet(name = "controladorProd", urlPatterns = {"/controladorProd"})
-public class controladorProd extends HttpServlet {
+@WebServlet(name = "cIngresoCompra", urlPatterns = {"/cIngresoCompra"})
+public class cIngresoCompra extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,20 +37,10 @@ public class controladorProd extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
- response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet c3</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>DEDEDE c3 at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+                productoDao pdao2 = new productoDao();
+                List listaProd=pdao2.buscar();
+                request.setAttribute("listaProd", listaProd);
+                request.getRequestDispatcher("ingresarCompra.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -64,8 +55,7 @@ public class controladorProd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               
-                
+        processRequest(request, response);
     }
 
     /**
@@ -79,44 +69,40 @@ public class controladorProd extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String accion=request.getParameter("guardarProducto");
+               String accion=request.getParameter("btnRegistrar");
         
         switch(accion){
             case "GUARDAR":
-             producto prod= new producto();
-             productoDao pDao=new productoDao();
+             ingresoCompra prod= new ingresoCompra();
+             ingresoCompraDao pDao=new ingresoCompraDao();
              int rpta;             
-             String fechaVence=request.getParameter("dteFechaVenc");
+             String fechaVence=request.getParameter("dteIngresoC");
              Date formatFecha=null;
              try{
              SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");    
              formatFecha=new java.sql.Date(sdf.parse(fechaVence).getTime());
              }catch(Exception e){
              e.printStackTrace();}
-             prod.setNombre(request.getParameter("txtNombre"));
-             prod.setDescripcion(request.getParameter("txtDescripcion"));
-             prod.setCodigoBarras(request.getParameter("txtCodigoBarras"));
-             prod.setFechaVencimiento(formatFecha);
-             prod.setIdProveedor(Integer.parseInt(request.getParameter("cboProveedor")));
-             prod.setIdSeccion(Integer.parseInt(request.getParameter("cboSeccion")));
-             prod.setIdUniMedida(Integer.parseInt(request.getParameter("cboUnidadMedida")));
-             prod.setIdMarcas(Integer.parseInt(request.getParameter("cboMarcas")));
-             prod.setIdTipo(Integer.parseInt(request.getParameter("cboTipo")));
-             prod.setIdMargen(Integer.parseInt(request.getParameter("cboMargen")));
+             prod.setIdProducto(Integer.parseInt(request.getParameter("hiddId")));
+             prod.setCantidad(Integer.parseInt(request.getParameter("txtCantidad")));
+             prod.setPrecio(Float.parseFloat(request.getParameter("txtPrecio")));
+             prod.setFecha(formatFecha);
+             prod.setDocumento(request.getParameter("txtDocumento"));
+             prod.setComentario(request.getParameter("txtComentario"));
              rpta=pDao.guardar(prod);
              if(rpta==1){
              request.setAttribute("respuesta", "Insertado con Exito");
-             request.getRequestDispatcher("controladorListas").forward(request, response); 
+             request.getRequestDispatcher("controlador?accion=regprod").forward(request, response); 
              }else{
              request.setAttribute("respuesta", "Hubo error");
-             request.getRequestDispatcher("registrarProducto.jsp").forward(request, response); 
+             request.getRequestDispatcher("controlador?accion=regprod").forward(request, response); 
              }
              break;
          default:
              throw new AssertionError();
                 
         }
-        
+
     }
 
     /**

@@ -18,6 +18,9 @@ public class controlador extends HttpServlet {
          case"intranet":
              request.getRequestDispatcher("Intranet.jsp").forward(request, response);
              break;
+             case"regprod":
+                 request.getRequestDispatcher("cIngresoCompra").forward(request, response);
+                 break;
          default:
              throw new AssertionError();
                  

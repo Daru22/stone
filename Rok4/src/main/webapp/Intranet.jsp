@@ -25,7 +25,7 @@
                     <ul class="submenu1">
                         <li><a href="controladorListas" id="smproductos" name="smproductos" target="nframe1">Productos Nuevos</a></li>
                         <li><a href="#" id="" name="smproductos1" target="nframe1">Ver Productos</a></li>
-                        <li><a href="ingresarCompra.jsp" id="" name="smproductos2" target="nframe1">Guardar Compra</a></li>
+                        <li><a href="cIngresoCompra" id="" name="smproductos2" target="nframe1">Guardar Compra</a></li>
                     </ul>
                </ul>
                <ul>
