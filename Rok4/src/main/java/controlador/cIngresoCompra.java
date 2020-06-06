@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.ingresoCompra;
 import modelo.ingresoCompraDao;
+import modelo.producto;
 import modelo.productoDao;
 
 /**
@@ -37,10 +38,25 @@ public class cIngresoCompra extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+                String accion=request.getParameter("accion");
                 productoDao pdao2 = new productoDao();
                 List listaProd=pdao2.buscar();
                 request.setAttribute("listaProd", listaProd);
+                 switch(accion){
+         case"ingresarC":
                 request.getRequestDispatcher("ingresarCompra.jsp").forward(request, response);
+             break;
+         case"verP":
+                request.getRequestDispatcher("verProductos.jsp").forward(request, response);
+             break;
+         case"venta":
+                request.getRequestDispatcher("realizarVenta.jsp").forward(request, response);
+             break;    
+         default:
+             throw new AssertionError();
+                 
+     } 
+                
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -92,12 +108,29 @@ public class cIngresoCompra extends HttpServlet {
              rpta=pDao.guardar(prod);
              if(rpta==1){
              request.setAttribute("respuesta", "Insertado con Exito");
-             request.getRequestDispatcher("controlador?accion=regprod").forward(request, response); 
+               productoDao pdao2 = new productoDao();
+                List listaProd=pdao2.buscar();
+                request.setAttribute("listaProd", listaProd);
+                request.getRequestDispatcher("ingresarCompra.jsp").forward(request, response);
+             request.getRequestDispatcher("ingresarCompra.jsp").forward(request, response); 
              }else{
              request.setAttribute("respuesta", "Hubo error");
-             request.getRequestDispatcher("controlador?accion=regprod").forward(request, response); 
+               productoDao pdao2 = new productoDao();
+                List listaProd=pdao2.buscar();
+                request.setAttribute("listaProd", listaProd);
+                request.getRequestDispatcher("ingresarCompra.jsp").forward(request, response);
              }
              break;
+            case "VER":
+                productoDao pdao2 = new productoDao();
+                producto prod1 = new producto();
+                prod1=pdao2.buscarPS(request.getParameter("hiddId"));
+                request.setAttribute("prod1", prod1);
+
+                List listaProd=pdao2.buscar();
+                request.setAttribute("listaProd", listaProd);
+                 request.getRequestDispatcher("verProductos.jsp").forward(request, response);
+                break;
          default:
              throw new AssertionError();
                 

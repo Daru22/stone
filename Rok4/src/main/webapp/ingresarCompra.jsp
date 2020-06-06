@@ -2,17 +2,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Intranet</title>
-        <meta charset="UTF-8">
+      <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="estilos\registros.css" >    
+        <link rel="stylesheet" href="estilos\registros.css" > 
     </head>
     <body>
         <div class="ContProd">
         <strong>INGRESAR COMPRA</strong>       
         <form action="cIngresoCompra" method="post" autocomplete="off" >
-            <div class="autocomplete">
-                <label>NOMBRE</label><input class="tbox" type="text" name="txtNombre" id="tbox22">
+            <div class="parForm">
+                <label>NOMBRE</label>
+                <div class=" autocomplete"><input class="tbox22" type="text" name="txtNombre" id="tbox22"></div>
                 <input  type="hidden" name="hiddId" id="hid22">
                 <c:forEach var="produs" items="${listaProd}">
                         <input type="hidden" class="item"id="${produs.getId()}" value="${produs.getNombre()}">

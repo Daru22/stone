@@ -13,6 +13,7 @@
 
     })
 }
+
 function removerActivo(){
     for (let i=0;i<menu1.length; i++){
         menu1[i].classList.remove("activo")
@@ -23,6 +24,7 @@ function removerActivo(){
  for (let i=0;i<lis.length; i++){
     lis[i].addEventListener("click",function(e){
        check.checked=false;
+       removerActivo();
     })
 }
 

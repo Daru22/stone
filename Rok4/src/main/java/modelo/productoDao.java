@@ -59,4 +59,45 @@ public class productoDao {
     }
     return lista;   
 }
+ 
+  public producto buscarPS(String idProd){
+      producto prod=new producto();
+    String sql="select precio,stock,nombre from productos where idProducto=?";
+    try {
+        con= cn.Conectar();
+        ps=con.prepareStatement(sql);
+        ps.setString(1,idProd);
+        rs=ps.executeQuery();
+        while(rs.next()){
+        prod.setPrecio(rs.getFloat(1));
+        prod.setStock(rs.getInt(2));
+        prod.setNombre(rs.getString(3));
+        }        
+    } catch (Exception e){
+        e.printStackTrace();
+    }
+    return prod;   
+}
+  
+  public List buscarPS2(){
+      List<producto>lista=new ArrayList();
+      String sql="select idProducto,nombre,precio,stock from productos";
+    try {
+        con= cn.Conectar();
+        ps=con.prepareStatement(sql);
+        rs=ps.executeQuery();
+        while(rs.next()){
+        producto prod=new producto();
+        prod.setId(rs.getInt(1));
+        prod.setNombre(rs.getString(2));
+        prod.setPrecio(rs.getFloat(3));
+        prod.setStock(rs.getInt(4));
+        lista.add(prod);
+        }        
+    } catch (Exception e){
+        e.printStackTrace();
+    }
+    return lista;   
+}
+  
 }
