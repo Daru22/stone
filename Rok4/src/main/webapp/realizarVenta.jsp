@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,14 +13,10 @@
             <div class="parForm">
         <label>PRODUCTO</label>
            <div class=" autocomplete"><input class="tbox22" type="text" name="txtNombre" id="tbox22"></div>
-                <input  type="hidden" name="hiddId" id="hid22">
-                <c:forEach var="produs" items="${listaProd}">
-                        <input type="hidden" class="item"id="${produs.getId()}" value="${produs.getNombre()}">
-                </c:forEach>   
-        </div>
-            
+                <input  type="hidden" name="hiddId" id="txtId">  
+        </div>            
             <div class="parForm">
-        <label>PRECIO UNITARIO</label><input class="tbox" type="text">
+                <label>PRECIO UNITARIO</label><input class="tbox" type="text" id="txtPrecio">
         </div>
                 <div class="parForm">
         <label>CANTIDAD</label><input class="tbox" type="text">
@@ -37,6 +32,6 @@
         </div>
         </form>
         </div>
-                <script type="text/javascript" src="JS\Autocompletar.js"></script>
+                <script type="text/javascript" src="JS\rVentas.js"></script>
     </body>
 </html>

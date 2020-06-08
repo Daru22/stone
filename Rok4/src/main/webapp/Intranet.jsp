@@ -24,7 +24,7 @@
                     <li class="menu1">PRODUCTOS</li>
                     <ul class="submenu1">
                         <li><a href="controladorListas" id="smproductos" name="smproductos" target="nframe1">Productos Nuevos</a></li>
-                        <li><a href="cIngresoCompra?accion=verP" id="" name="smproductos1" target="nframe1">Ver Productos</a></li>
+                        <li><a href="verProductos.jsp" id="" name="smproductos1" target="nframe1">Ver Productos</a></li>
                         <li><a href="cIngresoCompra?accion=ingresarC" id="" name="smproductos2" target="nframe1">Guardar Compra</a></li>
                     </ul>
                </ul>
@@ -37,7 +37,7 @@
                     <ul>
                     <li class="menu1">VENTAS</li>
                     <ul class="submenu1">
-                        <li><a href="verProductos.jsp" id="smventas" name="smventas" target="nframe1">Guardar Venta</a></li>
+                        <li><a href="realizarVenta.jsp" id="smventas" name="smventas" target="nframe1">Guardar Venta</a></li>
                     </ul>
                </ul>
                  <ul>

@@ -1,6 +1,19 @@
 (function(){
 cargarProductos();
 }());
+
+
+function cargarProductos()
+{
+	
+		ajax = new XMLHttpRequest(); // No Internet Explorer
+	// Almacenamos en el control al funcion que se invocara cuando la peticion
+	// cambie de estado	
+	ajax.onreadystatechange = funcionCallback;
+	// Enviamos la peticion
+	ajax.open( "GET", "gsonProductos", true );
+	ajax.send();
+}
 function funcionCallback()
 {
 	if( ajax.readyState == 4 )
@@ -21,17 +34,7 @@ function funcionCallback()
 	}
 }
 
-function cargarProductos()
-{
-	
-		ajax = new XMLHttpRequest(); // No Internet Explorer
-	// Almacenamos en el control al funcion que se invocara cuando la peticion
-	// cambie de estado	
-	ajax.onreadystatechange = funcionCallback;
-	// Enviamos la peticion
-	ajax.open( "GET", "gsonProductos", true );
-	ajax.send();
-}
+
 
 function autocomplete(inp, arr) {
     var txtPrecio=document.getElementById("txtPrecio")
@@ -44,7 +47,6 @@ function autocomplete(inp, arr) {
   inp.addEventListener("input", function(e) {
       txtId.value="";
       txtPrecio.value="";
-      txtStock.value="";
       var a, b, i,indice,sum1, val = this.value;
       /*cerrar cualquier lista ya abierta de valores autocompletados*/
       closeAllLists();
@@ -71,14 +73,12 @@ function autocomplete(inp, arr) {
           b.innerHTML += "<input type='hidden' value='" + valor + "'>";
           b.innerHTML += "<input type='hidden' value='" + arr[i].id + "'>";
           b.innerHTML += "<input type='hidden' value='" + arr[i].precio + "'>";
-          b.innerHTML += "<input type='hidden' value='" + arr[i].stock + "'>";
           /*ejecutar una función cuando alguien hace clic en el valor del elemento (elemento DIV):*/
           b.addEventListener("click", function(e) {
               /*inserte el valor para el campo de texto de autocompletar:*/
               inp.value = this.getElementsByTagName("input")[0].value;
               txtId.value = this.getElementsByTagName("input")[1].value;
               txtPrecio.value = this.getElementsByTagName("input")[2].value;
-              txtStock.value = this.getElementsByTagName("input")[3].value;
               
               /*cierra la lista de valores autocompletados,
               (o cualquier otra lista abierta de valores autocompletados:*/
