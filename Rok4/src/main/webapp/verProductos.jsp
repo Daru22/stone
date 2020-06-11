@@ -22,7 +22,7 @@
                 <label>STOCK</label><input class="tbox" type="text" id="txtStock" readonly >
         </div>
             <div class="parForm">
-                <input type="submit" class="boton" value="VER" name="btnRegistrar" id="btnf">
+                <input type="submit" class="boton" value="LIMPIAR" name="btnRegistrar" id="btnf">
         </div>
         </form>
         <label></label>

@@ -1,5 +1,14 @@
 (function(){
 cargarProductos();
+var txtCantidad=document.getElementById("txtCantidad");
+txtCantidad.addEventListener("blur",function(e){
+    if(txtCantidad.value != ""){
+        var valor1 =document.getElementById("txtCantidad").value;
+        var valor2 =document.getElementById("txtPrecio").value;
+        document.getElementById("txtImporte").value=valor1*valor2;
+    }
+});
+
 }());
 
 
@@ -38,7 +47,6 @@ function funcionCallback()
 
 function autocomplete(inp, arr) {
     var txtPrecio=document.getElementById("txtPrecio")
-    var txtStock=document.getElementById("txtStock");
     var txtId=document.getElementById("txtId");
   /*la función autocompletar toma dos argumentos,
   el elemento de campo de texto y una matriz de posibles valores autocompletados:*/
