@@ -26,7 +26,7 @@
         </div>
             <div class="parForm">
                 <label>DESCUENTO</label><input class="tbox" type="text" id="txtDescuento" name="txtDescuento">
-        </div>
+        </div> 
             <div class="parForm">
                 <input type="submit" class="boton" value="GUARDAR" name="btnGuardar">
         </div>
