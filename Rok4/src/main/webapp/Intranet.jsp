@@ -53,7 +53,7 @@
         </header>
         <div class="barra"></div>
         <div class="contenido">
-            <iframe id="nframe1" frameborder="0" name="nframe1"></iframe>
+            <iframe id="nframe1" frameborder="0" name="nframe1" srdoc="<h1>DAGASOFT</h1>"></iframe>
         </div>
         <div class="contenedorbrillo">
             <div class="brillo"></div>

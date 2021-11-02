@@ -14,16 +14,16 @@
                             <img id="images" src="images\11.jpg" alt="imagen"> 
                         </div>
                         <div class="slider-element">
-                           <img id="images2" src="images\22.jpg" alt="imagen">
+                           <img id="images2" src="images\Roca.jpg" alt="imagen">
                         </div>
                         <div class="slider-element">
-                            <img id="images3" src="images\33.jpg" alt="imagen">                          
+                            <img id="images3" src="images\11.jpg" alt="imagen">                          
                         </div>
                         <div class="slider-element">
-                            <img id="images4" src="images\44.jpg" alt="imagen">                          
+                            <img id="images4" src="images\Roca.jpg" alt="imagen">                          
                         </div>
                         <div class="slider-element">
-                            <img id="images5" src="images\55.jpg" alt="imagen">                          
+                            <img id="images5" src="images\11.jpg" alt="imagen">                          
                         </div>
                     </div>
                 </div>   

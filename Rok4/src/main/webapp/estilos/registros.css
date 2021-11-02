@@ -12,52 +12,37 @@
     align-items:center;
     color: #000033;
     font-family: sans-serif;
-    color: #000033;
 }
+
 .ContProd strong{
-    width: 100%;
+    width: 70%;
+    font-family: arial, helvetica, roboto, "new times roman", lato;
     text-align: center;
-    margin: 10px;
+    margin: 25px;
+    border: 1px solid red;
+    font-size: large;
 }
 .ContProd form{
-    width: 100%;
+    width: 80%;
     border-radius: 3px;
     display: flex;
     flex-flow:row wrap;
     justify-content:center;
+    margin: 10px;
+    border: 1px solid red;
 }
-.parForm{
+.ContProd .parForm{
     width: 100%;
     display: flex;
     flex-flow:row wrap;
     justify-content:center;
     align-items:center; 
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    border: 1px solid yellow;
 }
-.parForm > label{
-    width: 40%;
-}
-.parForm > .tbox{
-    width: 60%;
-    padding: 4px;
-}
-.parForm > div{
-    width: 60%;
-}
-.tbox22{
-    width: 100%;
-    padding: 4px;
-}
-.parForm .boton{
-    width: 80%;
-    background: #F4D03F;
-    font-weight: bold;
-    padding: 5px;
-}
-p{  
-    font-weight: normal;
-    text-align: justify;
-    padding: 5px;
+.tboxro{
+    border: 0;
+     text-align: center;
 }
 
 .autocomplete {
@@ -94,6 +79,25 @@ p{
 
 span{
     font-weight: bold;
+}
+
+.tabla{
+    width: 100%;
+    border: 1px solid yellow;
+    display: flex;
+    flex-flow:row wrap;
+    justify-content:center;
+    align-items:center; 
+    margin-bottom: 10px;
+}
+table{
+    border: 1px solid #000;
+    width: 100%;
+}
+th,td{
+    width: 20%;
+    border: 1px solid #000;
+    
 }
 
 
