@@ -8,22 +8,21 @@
     </head>
     <body>
         <div class="ContProd">
-        <strong>BUSCAR PRODUCTO</strong>
-        <form action="cVenta" method="post"autocomplete="off">
-        <div class="parForm">
+        <strong>BUSCAR PRODUCTO</strong>      
+        <div class="gridContainer">
           <label>PRODUCTO</label>
-            <div class=" autocomplete">
+          <div class=" autocomplete">
             <input class="tbox22" type="text" name="txtNombre" id="tbox22">
-            </div>         
-        </div>            
-            <input  type="hidden" name="hiddId" id="txtId">
-            <div class="parForm">
-                <label>PRECIO UNITARIO</label><input class="tboxro" type="text" id="txtPrecio" name="txtPrecio" readonly="readonly">
+          </div>                     
+          <input  type="hidden" name="hiddId" id="txtId">
+          <label>PRECIO UNITARIO</label>
+          <input class="tboxro" type="text" id="txtPrecio" name="txtPrecio" readonly="readonly">
+          <input type="button" class="boton" value="AGREGAR" name="btnAgregar">
+          <input type="button" class="boton" value="LIMPIAR" name="btnlMPIAR">  
         </div>         
-                <input type="submit" class="boton" value="AGREGAR" name="btnGuardar">    
-        </form>
+                    
         <strong>DETALLE DE LA VENTA</strong>
-        <form>
+       <form action="cVenta" method="post"autocomplete="off">
             <div class="tabla">
             <table>
                 <tr>
@@ -42,7 +41,7 @@
                 </tr>
             </table>   
             </div>
-            <div class="parForm">
+            <div class="botones2">     
                 <input type="submit" class="boton" value="GUARDAR" name="btnGuardar">
                 <input type="button" class="boton" value="DESCUENTO" name="btnDescuento">
             </div>

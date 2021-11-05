@@ -15,7 +15,7 @@
 }
 
 .ContProd strong{
-    width: 70%;
+    width: 90%;
     font-family: arial, helvetica, roboto, "new times roman", lato;
     text-align: center;
     margin: 25px;
@@ -23,15 +23,14 @@
     font-size: large;
 }
 .ContProd form{
-    width: 80%;
+    width: 90%;
     border-radius: 3px;
     display: flex;
     flex-flow:row wrap;
     justify-content:center;
     margin: 10px;
-    border: 1px solid red;
 }
-.ContProd .parForm{
+/*.ContProd .parForm{
     width: 100%;
     display: flex;
     flex-flow:row wrap;
@@ -39,7 +38,27 @@
     align-items:center; 
     margin-bottom: 15px;
     border: 1px solid yellow;
+}*/
+.gridContainer{
+    display:grid;
+    grid-template-columns:50% 50%;
+    grid-template-rows:repeat(3,3rem);
+    gap:1rem;
+    justify-content:center;
+    align-items:center; 
 }
+.botones2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.boton{
+        padding-right: 1rem;
+        padding-left: 1rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+}
+
 .tboxro{
     border: 0;
      text-align: center;
@@ -83,12 +102,12 @@ span{
 
 .tabla{
     width: 100%;
-    border: 1px solid yellow;
     display: flex;
     flex-flow:row wrap;
     justify-content:center;
     align-items:center; 
     margin-bottom: 10px;
+
 }
 table{
     border: 1px solid #000;
